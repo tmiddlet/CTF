@@ -34,9 +34,9 @@ At best I can see perhaps a little bit of data in the <25MHz range, but nothing 
 ![flowgraph 2](files/images/img7.png)
 ![constellation 2](files/images/img6.png)
 
-After adding my bestguess at a relevant filter, we get something much more promising - this looks like a BPSK constellation! That's great news, because BPSK is very easy to decode
+After adding my best guess at a relevant filter, we get something much more promising - this looks like a BPSK constellation! That's great news, because BPSK is very easy to decode.
 
-I threw on a Clock Recovery Block to get a an acceptable constellation and some additional garbage to make it output a string of ones and zeros to a text file. This flowgraph really isn't very good and I get some bit errors, but the sequence repeats several times so I was able to use that as a rudimentary error correction code, and fix the bit errors in a text editor.
+I threw on a Clock Recovery Block to get a an acceptable constellation, and some additional garbage to make it output a string of ones and zeros to a text file. This flowgraph really isn't very good and produces some bit errors, but the sequence repeats several times so I was able to use that as a rudimentary error correction code, and fix the bit errors in a text editor.
 ![flowgraph 3](files/images/img9.png)
 ![constellation 3](files/images/img8.png)
 
@@ -58,9 +58,9 @@ The bit after the ascii is 64 bytes:
 80 0C B4 41 D4 93 70 B8 38 6C BA 0E 36 C0 94 9A CE F4 22 D3 0C 15 F1 89 76 81 37 CE DE E1 DD AB 42 67 CE 10 05 4D 87 8F 78 8C 41 58 61 E9 92 F5 6A 1B 66 32 4D EA EB 7F EA 56 F6 CF 19 B6 16 2B
 ```
 
-At this point we stalled out a bit. For some reason we forgot the GPS/DSSS insight for about an hour while we tried to pull the flag out of this data.
+At this point we stalled out a bit. For some reason we forgot the GPS/DSSS insight for about an hour while we tried to pull the flag out of this data. Nothing we did worked, though, and eventually we remembered the name of the challenge and got back on track.
 
-The flag isn't in this data. The flag is in the original file, and this is the pseudo-random sequence that was used to encode the data into chips.
+The flag isn't in this sequence. The flag is in the original file, and this is the pseudo-random sequence that was used to encode the data into chips.
 
 If we go back to the original data and correlate it with our newly found chip, we get the following:
 ![correlated](files/images/img10.png)
